@@ -81,7 +81,7 @@ jobs:
                 "workflowPath": ".github/workflows/ai-review.yml",
                 "configProfile": "backend",
                 "enabled": true
-              },
+              }
             ]
           }
           EOF

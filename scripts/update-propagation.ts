@@ -147,7 +147,7 @@ jobs:
     uses: ethereumidentitykit/workflow-automation/.github/workflows/issue-response.yml@v${this.config.workflowVersion}
     with:
       config-profile: "${repo.configProfile || 'default'}"
-      bot-mention: "@efp-dev-ops"
+      bot-mention: "@eik-dev-ops"
       enable-auto-labeling: true
       enable-escalation: true
     secrets:

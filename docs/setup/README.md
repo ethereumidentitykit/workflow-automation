@@ -30,10 +30,10 @@ For new satellite repositories that want to use the centralized AI review system
          enable-quality-review: true
          enable-documentation-review: true
        secrets:
-         CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-         APP_ID: ${{ secrets.APP_ID }}
-         PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
-         ALLOWED_USER_LIST: ${{ secrets.ALLOWED_USER_LIST }}
+         DEV_OPS_BOT_CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.DEV_OPS_BOT_CLAUDE_CODE_OAUTH_TOKEN }}
+         DEV_OPS_BOT_APP_ID: ${{ secrets.DEV_OPS_BOT_APP_ID }}
+         DEV_OPS_BOT_PRIVATE_KEY: ${{ secrets.DEV_OPS_BOT_PRIVATE_KEY }}
+         DEV_OPS_BOT_ALLOWED_USER_LIST: ${{ secrets.DEV_OPS_BOT_ALLOWED_USER_LIST }}
    ```
 
 3. Add the AI on-demand workflow (`.github/workflows/ai-on-demand.yml`):
@@ -54,14 +54,14 @@ For new satellite repositories that want to use the centralized AI review system
        uses: ethereumidentitykit/workflow-automation/.github/workflows/issue-response.yml@v1
        with:
          config-profile: "default"
-         bot-mention: "@efp-dev-ops"
+         bot-mention: "@eik-dev-ops"
          enable-auto-labeling: true
          enable-escalation: true
        secrets:
-         CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-         APP_ID: ${{ secrets.APP_ID }}
-         PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
-         ALLOWED_USER_LIST: ${{ secrets.ALLOWED_USER_LIST }}
+         DEV_OPS_BOT_CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.DEV_OPS_BOT_CLAUDE_CODE_OAUTH_TOKEN }}
+         DEV_OPS_BOT_APP_ID: ${{ secrets.DEV_OPS_BOT_APP_ID }}
+         DEV_OPS_BOT_PRIVATE_KEY: ${{ secrets.DEV_OPS_BOT_PRIVATE_KEY }}
+         DEV_OPS_BOT_ALLOWED_USER_LIST: ${{ secrets.DEV_OPS_BOT_ALLOWED_USER_LIST }}
    ```
 
 ### 2. Configuration Profiles
@@ -79,12 +79,12 @@ Choose the appropriate configuration profile for your repository:
 Add these secrets to your repository settings:
 
 #### Essential Secrets
-- **`CLAUDE_CODE_OAUTH_TOKEN`**: Your Claude Code OAuth token
-- **`APP_ID`**: GitHub App ID for authentication
-- **`PRIVATE_KEY`**: GitHub App private key
+- **`DEV_OPS_BOT_CLAUDE_CODE_OAUTH_TOKEN`**: Your Claude Code OAuth token
+- **`DEV_OPS_BOT_APP_ID`**: GitHub App ID for authentication
+- **`DEV_OPS_BOT_PRIVATE_KEY`**: GitHub App private key
 
 #### Optional Secrets
-- **`ALLOWED_USER_LIST`**: JSON array of users who can trigger AI responses
+- **`DEV_OPS_BOT_ALLOWED_USER_LIST`**: JSON array of users who can trigger AI responses
   ```json
   ["username1", "username2", "admin"]
   ```
@@ -151,9 +151,9 @@ For local development or self-hosted runners:
 
 ```bash
 export GITHUB_TOKEN="your-github-token"
-export CLAUDE_CODE_OAUTH_TOKEN="your-claude-code-token"
-export APP_ID="your-app-id"
-export PRIVATE_KEY="your-private-key"
+export DEV_OPS_BOT_ALLOWED_USER_LIST="your-claude-code-token"
+export DEV_OPS_BOT_APP_ID="your-app-id"
+export DEV_OPS_BOT_PRIVATE_KEY="your-private-key"
 ```
 
 ## Configuration Profiles Explained
@@ -210,7 +210,7 @@ bun run validate-config
 3. Check for review comments and summary
 
 ### 3. Test On-Demand Response
-1. Create an issue or comment with `@efp-dev-ops help me with...`
+1. Create an issue or comment with `@eik-dev-ops help me with...`
 2. The AI should respond within 30 seconds
 3. Verify the response quality and relevance
 
@@ -224,13 +224,13 @@ bun run validate-config
 - Ensure the central repository reference is correct (`@v1` or specific version)
 
 #### 2. Authentication Errors  
-- Verify `CLAUDE_CODE_OAUTH_TOKEN` is valid and not expired
+- Verify `DEV_OPS_BOT_CLAUDE_CODE_OAUTH_TOKEN` is valid and not expired
 - Check GitHub App permissions and installation
-- Ensure `APP_ID` and `PRIVATE_KEY` match your GitHub App
+- Ensure `DEV_OPS_BOT_APP_ID` and `DEV_OPS_BOT_PRIVATE_KEY` match your GitHub App
 
 #### 3. AI Not Responding
-- Check the `ALLOWED_USER_LIST` secret includes your username
-- Verify you're using the correct mention format (`@efp-dev-ops`)
+- Check the `DEV_OPS_BOT_ALLOWED_USER_LIST` secret includes your username
+- Verify you're using the correct mention format (`@eik-dev-ops`)
 - Check workflow run logs for error messages
 
 #### 4. Poor Review Quality
@@ -265,7 +265,7 @@ Convert your existing configuration to the new format:
 anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
 
 # New format (centralized)
-claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+claude_code_oauth_token: ${{ secrets.DEV_OPS_BOT_CLAUDE_CODE_OAUTH_TOKEN }}
 config-profile: "frontend"
 ```
 

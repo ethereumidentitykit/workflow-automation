@@ -153,7 +153,7 @@ curl -H "Authorization: Bearer $GITHUB_TOKEN" \
 @efp_dev_ops help me
 
 # ✅ Correct mention format  
-@efp-dev-ops help me with this issue
+@eik-dev-ops help me with this issue
 ```
 
 ### Solutions

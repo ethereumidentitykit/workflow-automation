@@ -17,7 +17,7 @@ on:
         description: 'Bot mention trigger (@bot-name)'
         required: false
         type: string
-        default: '@efp-dev-ops'
+        default: '@eik-dev-ops'
       max-response-time:
         description: 'Maximum time for response in minutes'
         required: false

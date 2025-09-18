@@ -103,7 +103,7 @@ jobs:
     uses: ethereumidentitykit/workflow-automation/.github/workflows/issue-response.yml@v1
     with:
       config-profile: "default"
-      bot-mention: "@efp-dev-ops"
+      bot-mention: "@eik-dev-ops"
       enable-auto-labeling: true
     secrets:
       CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -339,9 +339,9 @@ When you create a pull request, the system automatically:
 ### On-Demand Assistance
 Get AI help instantly:
 ```
-@efp-dev-ops How can I optimize this database query for better performance?
-@efp-dev-ops Can you explain the security implications of this authentication change?
-@efp-dev-ops Help me write tests for this new feature
+@eik-dev-ops How can I optimize this database query for better performance?
+@eik-dev-ops Can you explain the security implications of this authentication change?
+@eik-dev-ops Help me write tests for this new feature
 ```
 
 The AI responds within 30 seconds with contextual assistance.
@@ -390,8 +390,8 @@ bun run test-prompts
 - Ensure correct version reference
 
 **AI Not Responding**  
-- Check user in `ALLOWED_USER_LIST`
-- Verify mention format: `@efp-dev-ops`
+- Check user in `DEV_OPS_BOT_ALLOWED_USER_LIST`
+- Verify mention format: `@eik-dev-ops`
 - Review workflow logs
 
 **Poor Review Quality**

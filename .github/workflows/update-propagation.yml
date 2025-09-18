@@ -111,7 +111,7 @@ jobs:
                 "workflowPath": ".github/workflows/ai-review.yml",
                 "configProfile": "backend",
                 "enabled": true
-              },
+              }
             ],
             "workflowVersion": "${{ steps.version.outputs.version }}",
             "updateMessage": "### Changes in v${{ steps.version.outputs.version }}\\n\\nSee the [changelog](https://github.com/ethereumidentitykit/workflow-automation/releases/tag/v${{ steps.version.outputs.version }}) for detailed information about improvements and new features.",
